@@ -130,7 +130,7 @@ public function execute()
 
 如果需要重新编译并打包成exe的话，可以参考以下内容
 
-环境win10 x86（虚拟机）， python 3.7
+环境win10 x86（虚拟机）， python 3.7 x86
 
 `pip install PyQt5==5.11.3`
 
@@ -140,8 +140,8 @@ public function execute()
 
 `pip install pyinstaller`
 
-然后在cmd(或PowerShell)中进入根目录，运行
+然后在cmd(或PowerShell)中进入项目根目录，运行
 
 `pyinstaller -i typecho.ico -F -w main.py`
 
-成功后可再dist文件夹内看到exe文件 
+成功后可在dist文件夹内看到exe文件 
