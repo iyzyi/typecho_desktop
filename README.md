@@ -145,3 +145,6 @@ public function execute()
 `pyinstaller -i typecho.ico -F -w main.py`
 
 成功后可在dist文件夹内看到exe文件 
+
+
+
