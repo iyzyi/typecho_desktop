@@ -106,7 +106,7 @@ class Ui_create_page(object):
 
     list_update_pages_signal = QtCore.pyqtSignal()
     def not_qt_desinger(self):
-        self.checkBox.setChecked(True)
+        #self.checkBox.setChecked(True)
         self.toolButton.clicked.connect(self.getfile)
         self.lineEdit_time.setInputMask('0000-00-00 00:00;_')
         self.pushButton.clicked.connect(self.start)

@@ -14,11 +14,13 @@ class Typecho():
         self.password = user_dict['password']
         self.database = user_dict['database']
         self.localDir = user_dict['localDir']
+        self.login_user = user_dict['login_user']
+        self.login_password = user_dict['login_password']
         if not os.path.exists(self.localDir):
             os.makedirs(self.localDir)
         
         self.db = DB(ip=self.ip, user=self.user, password=self.password, database=self.database)
-        self.post = POST(self.url, self.token1, self.ip, self.user, self.password, self.database)
+        self.post = POST(self.url, self.token1, self.ip, self.user, self.password, self.database, self.login_user, self.login_password)
 
 
     def write_post(self, title, text, cid='', mid='', date='', img_url='', preview='', h2h3=''):

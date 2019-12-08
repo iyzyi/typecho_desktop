@@ -15,13 +15,15 @@ def url_encode(string):
 
 class POST():
 
-    def __init__(self, url, token1, ip, user, password, database):
+    def __init__(self, url, token1, ip, user, password, database, login_user, login_password):
         self.host_url = url
         self.token1 = token1
         self.ip = ip
         self.user=user 
         self.password = password
         self.database = database
+        self.login_user = login_user
+        self.login_password = login_password
         self.session = requests.Session()
         #self.session_login = requests.Session()
         self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',}
@@ -41,8 +43,8 @@ class POST():
         token = md5(self.token1 + '&' + token4)
         url = self.host_url + '/index.php/action/login?_=%s' % token
         data = {
-            'name': 'admin',
-            'password': 'DdhjX520',
+            'name': self.login_user,
+            'password': self.login_password,
             'referer': '{}%2Fadmin%2F'.format(url_encode(self.host_url))
             }
         self.headers['Referer'] = token4
@@ -64,9 +66,9 @@ class POST():
         data = {
             'title': title,
             'text': text,
-            'fields[thumbnail]': img_url,
-            'fields[previewContent]': preview,
-            'fields[showTOC]': h2h3,
+            #'fields[thumbnail]': img_url,
+            #'fields[previewContent]': preview,
+            #'fields[showTOC]': h2h3,
             'cid': cid,
             'do': 'publish',
             'markdown': '1',
@@ -95,9 +97,9 @@ class POST():
             'title': title,
             'slug': slug, 
             'text': text,
-            'fields[thumbnail]': img_url,
-            'fields[previewContent]': preview,
-            'fields[showTOC]': h2h3,
+            #'fields[thumbnail]': img_url,
+            #'fields[previewContent]': preview,
+            #'fields[showTOC]': h2h3,
             'cid': cid,
             'do': 'publish',
             'markdown': '1',
