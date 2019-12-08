@@ -63,7 +63,9 @@ emmmm，说起来，这算是我写的第三个Typecho博客管理的程序了�
             "user":"root",
             "password":"root",
             "database":"blog3",
-            "localDir":"C:\\计算机\\Project\\typecho_desktop_cmd\\md"
+            "localDir":"C:\\计算机\\Project\\typecho_desktop_cmd\\md",
+            "login_user":"admin",
+            "login_password":"login_password"
         }
     ]
 ]
@@ -121,10 +123,16 @@ public function execute()
 * password：数据库密码
 * database：数据库库名
 * localDir：本地缓存目录，下载的文章和文章中的图片都会放在这里
+* login_user：博客登录用户名
+* login_password：博客登录账号的密码
 
 配置完成后要开启mysql远程连接服务，具体参考我之前写的一篇笔记：[mysql外网连接](http://iyzyi.com/index.php/archives/82/)
 
 然后就可以使用啦。
+
+此外，本程序仅针对某博客中只有一个用户的情况。如果该博客有多个用户，则务必使用数据库中显示的第一个用户登录。
+
+还有，登录失败时我没有设置提示信息，请保证账号和密码是正确的。
 
 ### 编译打包
 
@@ -146,5 +154,12 @@ public function execute()
 
 成功后可在dist文件夹内看到exe文件 
 
+## 补充
 
+### 2019.12.08
 
+我的博客主题从aria改为了handsome，自定义字段不同了。
+
+本次更新没有在gui中添加新主题的自定义字段，但是把旧的自定义字段给取消了（gui中还在，但是任何字符串都不会发给博客）
+
+另外将网页登录的账号和密码改为写在配置文件中，而不是代码中。
