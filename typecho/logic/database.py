@@ -15,7 +15,7 @@ class DB():
             QMessageBox.information(None, '数据库', '数据库连接失败！\n%s' % str(e), QMessageBox.Ok, QMessageBox.Ok)
         else:
             self.cursor = self.db.cursor()
-            self.cursor.execute('SELECT uid,authCode FROM typecho_users')
+            self.cursor.execute('SELECT uid,authCode FROM typecho_users where name="iyzyi";')
             user_info = self.cursor.fetchone()
             self.user_uid = user_info[0]
             self.user_authCode = user_info[1]
