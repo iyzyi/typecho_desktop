@@ -86,6 +86,8 @@ class IMG():
             elif re.search(r'^https?://', img['front']):        #网络图片
                 if re.search('^%s/usr/uploads/'%self.host_url.replace('.','\\.'), img['front']):    #本站的网络图片
                     no_need.append(img)
+                elif 'iyzyi.com' in img['front']:               # url中含有iyzyi.com的话，也算是本站的网络图片（主要是最近使用了图床，image.iyzyi.com）
+                    no_need.append(img)
                 else:                                           #非本站的网络图片
                     img['middle'] = self.download_img(img['front'], self.img_dir_path)
                     if self.cid == '':
